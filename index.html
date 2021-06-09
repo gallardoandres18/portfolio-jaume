@@ -17,8 +17,8 @@
     />
   </head>
   <body>
-    <div class="container">
-      <header class="header grid" id="header">
+    <header class="header" id="header">
+      <div class="container grid">
         <img src="./assets/images/logo.png" alt="" class="header__logo" />
         <nav class="header__navigation">
           <ul>
@@ -34,7 +34,9 @@
           </ul>
         </nav>
         <a href="" class="button button--primary"> Currículum </a>
-      </header>
+      </div>
+    </header>
+    <div class="container">
       <main>
         <section class="presentation grid">
           <div class="presentation__image-content">
@@ -75,11 +77,13 @@
             <h4 class="projects__subtitle">
               Aquí hay algunos que me gustaría compartir.
             </h4>
-            <img
-              src="./assets/images/arrow-down.svg"
-              alt=""
-              class="projects__arrow"
-            />
+            <a href="#projects">
+              <img
+                src="./assets/images/arrow-down.svg"
+                alt=""
+                class="projects__arrow"
+              />
+            </a>
           </div>
           <section class="project grid">
             <div class="project__info">
@@ -239,5 +243,26 @@
         </footer>
       </main>
     </div>
+    <script>
+      const header = document.getElementById("header");
+
+      function addStickyOnScroll() {
+        header.classList.add("sticky");
+      }
+
+      function removeStickyOnScroll() {
+        header.classList.remove("sticky");
+      }
+
+      window.addEventListener("scroll", function () {
+        const scrollpos = window.scrollY;
+
+        if (scrollpos > 10) {
+          addStickyOnScroll();
+        } else {
+          removeStickyOnScroll();
+        }
+      });
+    </script>
   </body>
 </html>
